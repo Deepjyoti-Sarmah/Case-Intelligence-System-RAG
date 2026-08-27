@@ -1,0 +1,63 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: rag
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql+psycopg://postgres:postgres@postgres:5432/rag
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      LLM_PROVIDER: ${LLM_PROVIDER:-anthropic}
+      LLM_MODEL: ${LLM_MODEL:-claude-opus-5}
+      EMBEDDING_MODEL: ${EMBEDDING_MODEL:-BAAI/bge-small-en-v1.5}
+      RERANKER_MODEL: ${RERANKER_MODEL:-BAAI/bge-reranker-base}
+      TOP_K_LEXICAL: ${TOP_K_LEXICAL:-30}
+      TOP_K_DENSE: ${TOP_K_DENSE:-30}
+      TOP_K_RERANK: ${TOP_K_RERANK:-10}
+      MAX_CONTEXT_TOKENS: ${MAX_CONTEXT_TOKENS:-8000}
+      RRF_K: ${RRF_K:-60}
+      DEBUG_TRACE: ${DEBUG_TRACE:-false}
+      ENABLE_RERANKER: ${ENABLE_RERANKER:-true}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: >
+      bash -c "alembic -c alembic.ini upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload"
+    volumes:
+      - ./backend:/app
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      VITE_API_URL: http://localhost:8000
+
+volumes:
+  pgdata:
