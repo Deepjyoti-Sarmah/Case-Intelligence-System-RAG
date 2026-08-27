@@ -28,6 +28,8 @@ _STOPWORDS = {
     "happen", "talks", "talk", "talked", "discuss", "discussed", "discusses",
     "regarding", "concerning", "across", "between", "during", "biggest",
     "risk", "risks", "need", "needs", "think", "seems", "important",
+    # Person names - these are metadata filters, not text search terms
+    "nathan", "robert",
 }
 
 
@@ -45,7 +47,7 @@ def _no_evidence_response(request_id: str, plan, retrieval_count: int = 0) -> di
 
 def _has_uncorroborated_term(session, question: str, candidates: list) -> bool:
     """Detect a query term that appears nowhere in the corpus (e.g. an invented question)."""
-    raw_terms = [t.replace("'", "") for t in re.findall(r"[a-zA-Z']+", question.lower()) if len(t) > 3]
+    raw_terms = [t.replace("'", "").rstrip('s') for t in re.findall(r"[a-zA-Z']+", question.lower()) if len(t) > 3]
     terms = [t for t in raw_terms if t not in _STOPWORDS] or raw_terms
     rarest = None
     min_cnt = 10**9

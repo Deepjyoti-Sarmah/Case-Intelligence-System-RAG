@@ -34,6 +34,8 @@ def _deterministic(question: str) -> dict:
     ql = question.lower()
     out: dict = {}
     m = re.search(r"\b(nathan|robert)\b", ql)
+    if not m:
+        m = re.search(r"(nathan|robert)(?:'s)?", ql)
     if m:
         out["person_id"] = m.group(1).lower()
     if re.search(r"\b(latest|last|most recent)\b", ql):
