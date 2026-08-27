@@ -74,7 +74,7 @@ def plan_query(question: str) -> QueryPlan:
         if not settings.anthropic_api_key or settings.anthropic_api_key == "dummy-key-for-local-boot":
             raise RuntimeError("no anthropic key")
         import anthropic
-        client = anthropic.Anthropic(api_key=settings.anthropic_api_key)
+        client = anthropic.Anthropic(api_key=settings.anthropic_api_key, timeout=30.0, max_retries=2)
         resp = client.messages.parse(
             model=settings.llm_model,
             max_tokens=1024,

@@ -1,4 +1,7 @@
-.PHONY: up down ingest reset-db eval test fmt
+.PHONY: start up down ingest reset-db eval test fmt
+
+start:
+	docker compose up --build
 
 up:
 	docker compose up --build
@@ -14,7 +17,7 @@ reset-db:
 	docker compose exec backend alembic -c alembic.ini upgrade head || (cd backend && alembic -c alembic.ini upgrade head)
 
 eval:
-	python evaluation/run_eval.py
+	docker compose exec backend python evaluation/run_eval.py
 
 test:
 	pytest backend/tests -v

@@ -1,0 +1,1982 @@
+{
+  "generated_at": "2026-08-27T14:52:17.072881+00:00",
+  "dataset": "/app/evaluation/datasets/golden.jsonl",
+  "num_records": 21,
+  "reranker_on": {
+    "retrieval": {
+      "overall": {
+        "recall_at_5": 0.712962962962963,
+        "recall_at_10": 0.8425925925925926,
+        "mrr": 0.8222222222222223,
+        "ndcg_at_10": 2.182585425464925
+      },
+      "per_type": {
+        "reference_lookup": {
+          "recall_at_5": 0.6666666666666666,
+          "recall_at_10": 0.6666666666666666,
+          "mrr": 0.6666666666666666,
+          "ndcg_at_10": 2.4033800363378024
+        },
+        "transcript_lookup": {
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_10": 2.5102320929226085
+        },
+        "cross_transcript_summary": {
+          "recall_at_5": 0.8333333333333333,
+          "recall_at_10": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_10": 2.4590331955495257
+        },
+        "theme_inference": {
+          "recall_at_5": 0.8333333333333333,
+          "recall_at_10": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_10": 2.4590331955495257
+        },
+        "policy_comparison": {
+          "recall_at_5": 0.5,
+          "recall_at_10": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_10": 2.7858706533121533
+        },
+        "case_assessment": {
+          "recall_at_5": 0.16666666666666666,
+          "recall_at_10": 0.5833333333333333,
+          "mrr": 0.15000000000000002,
+          "ndcg_at_10": 0.26297076714380135
+        },
+        "relationship": {
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr": 0.75,
+          "ndcg_at_10": 1.8469096281891768
+        },
+        "temporal": {
+          "recall_at_5": 0.5833333333333333,
+          "recall_at_10": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_10": 2.4590331955495257
+        }
+      }
+    },
+    "answer": {
+      "overall": {
+        "groundedness": 1.0,
+        "unsupported_claim_rate": 0.0,
+        "citation_correctness": 0.8425925925925926,
+        "fact_coverage": 0.14102564102564102,
+        "answer_relevance": null,
+        "no_evidence_accuracy": 0.0
+      }
+    },
+    "no_evidence_violations": [],
+    "records": [
+      {
+        "id": "q001",
+        "type": "reference_lookup",
+        "question": "When should a client submit a grievance?",
+        "retrieved_files": [
+          "grievance-and-appeal.pdf",
+          "grievance-and-appeal.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "grievance-and-appeal.pdf",
+          "grievance-and-appeal.pdf",
+          "grievance-and-appeal.pdf",
+          "grievance-and-appeal.pdf",
+          "grievance-and-appeal.pdf",
+          "grievance-and-appeal.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: Policy: This policy was developed as a guideline designed to allow participants to register grievances against a staff member in a fair and reasonable manner. These procedures provide guidelines for handling grievances and appeals by participants and staff in such a manner as to create a fair and balanced decision for the participant and staff member alike. The following general principles shall apply to each disciplinary action taken: 1. A conduct/incident report of the violation committed by a participant must be submitted by the staff member within twenty-four (24) hours of the incident occ\n\nAdditional context from 9 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "reference_lookup",
+          "scores": {
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0,
+            "ndcg_at_10": 3.754494511770458
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 1.0,
+          "fact_coverage": 0.3333333333333333,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q002",
+        "type": "reference_lookup",
+        "question": "What must be confirmed about a client's latest drug screen during a check-in?",
+        "retrieved_files": [
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: Can you please contact?\nI don't like the police.\nplease i like them as important ones don't like to have contact with them but they don't want to get in trouble\nyeah say the wrong thing then they get crazy all right checking court fact every day\nright yep any thoughts dreams about using or drinking okay how's work been going it's good slow that's why my fees got behind i had a slow work weeks like today i was off 12 30. stressful work stops but the bills don't\nAll right. And then how's life been going? How's your work? Good? Yes, ma'am.\nSpending time with family, doing all that good stuff? Yea\n\nAdditional context from 9 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "reference_lookup",
+          "scores": {
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_10": 0.0
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 0.0,
+          "fact_coverage": 0.0,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q003",
+        "type": "reference_lookup",
+        "question": "When must a urine sample be taken after a client's admission into the program?",
+        "retrieved_files": [
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "nathan-06-02.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "robert-5-21.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "robert-5-21.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: CS-020: Client Property\n\nAdditional context from 9 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "reference_lookup",
+          "scores": {
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0,
+            "ndcg_at_10": 3.455645597242949
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 1.0,
+          "fact_coverage": 0.0,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q004",
+        "type": "transcript_lookup",
+        "question": "What happened with Nathan's drug screen in his April 14 session?",
+        "retrieved_files": [
+          "nathan-04-14.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf",
+          "nathan-06-02.pdf",
+          "nathan-05-19.pdf",
+          "nathan-04-14.pdf",
+          "nathan-05-19.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-05-19.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: That is good for that.\nI'm going to go back.\num just so you know i won't be here next monday\nso we're just gonna do two weeks and i'll see you on april 28th make things easier that'd be great i think that helps everyone else out when i do that kind of stuff instead of making trying to get you guys in here to see somebody that doesn't really work with you guys that much you know i\nmean\nyeah i had to do it with probation when i was in no more than street and i would see this girl and she's like asking these rolling depth questions\nso i'm like rick never has to do this she's like you doing\nwell a\n\nAdditional context from 9 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "transcript_lookup",
+          "scores": {
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0,
+            "ndcg_at_10": 1.3562071871080221
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 1.0,
+          "fact_coverage": 0.0,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q005",
+        "type": "transcript_lookup",
+        "question": "What was the result of Nathan's last drug screen mentioned in his June 2nd session?",
+        "retrieved_files": [
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: Can you please contact?\nI don't like the police.\nplease i like them as important ones don't like to have contact with them but they don't want to get in trouble\nyeah say the wrong thing then they get crazy all right checking court fact every day\nright yep any thoughts dreams about using or drinking okay how's work been going it's good slow that's why my fees got behind i had a slow work weeks like today i was off 12 30. stressful work stops but the bills don't\nAll right. And then how's life been going? How's your work? Good? Yes, ma'am.\nSpending time with family, doing all that good stuff? Yea\n\nAdditional context from 9 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "transcript_lookup",
+          "scores": {
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0,
+            "ndcg_at_10": 4.543559338088346
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 1.0,
+          "fact_coverage": 0.0,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q006",
+        "type": "transcript_lookup",
+        "question": "What did Robert say about his home address in his May 7 session?",
+        "retrieved_files": [
+          "robert-05-07.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: Nice.\nAnd then looking at locations for last week.\nThat was everywhere.\nComes with the job, right?\nI'm glad you're staying busy with that.\nsometimes it can be difficult when it's your own company so nah i'm pretty sure control is like yeah it's robert again that's okay though that's\nokay it's part of their job my son started working with me about a week ago and how's he doing he's doing pretty good poor girl he needs to go to the gym oh gosh\nokay but he goes what are you becoming a cop\nI was like no I'm just calling control for my house arrest oh my gosh when the field officer stopped by my ho\n\nAdditional context from 9 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "transcript_lookup",
+          "scores": {
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0,
+            "ndcg_at_10": 1.6309297535714575
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 1.0,
+          "fact_coverage": 0.0,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q007",
+        "type": "cross_transcript_summary",
+        "question": "What are some key themes that Robert talks about across his sessions?",
+        "retrieved_files": [
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-05-07.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: I just won't be in the office, so if you call and leave me a voicemail,\nI'm not going to hear it until Tuesday.\nAnd I don't want to do that to you.\nSo shoot me an email, let me know.\nIf you don't hear back from me and it's something that you need taken care of sooner rather than later, call under control, see if there's a case manager here you can talk to if you can't get a hold of me.\nOkay.\nAll right.\nLooking at locations for last week.\nwhoo up in Fort Wayne last week yeah picking up my daughter Ivan yeah no I need to add a little bit of drive time\nyeah that's fine I had to fly up there and f\n\nAdditional context from 9 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "cross_transcript_summary",
+          "scores": {
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0,
+            "ndcg_at_10": 2.7858706533121533
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 1.0,
+          "fact_coverage": 0.0,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q008",
+        "type": "cross_transcript_summary",
+        "question": "What topics come up repeatedly across Nathan's check-in sessions?",
+        "retrieved_files": [
+          "nathan-04-14.pdf",
+          "nathan-06-02.pdf",
+          "nathan-04-14.pdf",
+          "nathan-04-14.pdf",
+          "nathan-04-14.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-05-19.pdf",
+          "nathan-06-02.pdf",
+          "nathan-04-14.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: mean\nyeah i had to do it with probation when i was in no more than street and i would see this girl and she's like asking these rolling depth questions\nso i'm like rick never has to do this she's like you doing\nwell and she's like i looked at your case uh do you need to know health services you're all bro you said i never asked you that stuff\nyeah huh you said i never asked you that my regular probation officer never did oh okay how life was going how work was going just like you do\nyeah and she was like wanting to know like my mental health and i'm like girl like who's that it was at adult pr\n\nAdditional context from 9 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "cross_transcript_summary",
+          "scores": {
+            "recall_at_5": 0.6666666666666666,
+            "recall_at_10": 1.0,
+            "mrr": 1.0,
+            "ndcg_at_10": 2.1321957377868976
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 1.0,
+          "fact_coverage": 0.0,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q009",
+        "type": "theme_inference",
+        "question": "What things seem to be important to Robert?",
+        "retrieved_files": [
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: Nice.\nAnd then looking at locations for last week.\nThat was everywhere.\nComes with the job, right?\nI'm glad you're staying busy with that.\nsometimes it can be difficult when it's your own company so nah i'm pretty sure control is like yeah it's robert again that's okay though that's\nokay it's part of their job my son started working with me about a week ago and how's he doing he's doing pretty good poor girl he needs to go to the gym oh gosh\nokay but he goes what are you becoming a cop\nI was like no I'm just calling control for my house arrest oh my gosh when the field officer stopped by my ho\n\nAdditional context from 9 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "theme_inference",
+          "scores": {
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0,
+            "ndcg_at_10": 2.7858706533121533
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 1.0,
+          "fact_coverage": 0.5,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q010",
+        "type": "theme_inference",
+        "question": "What things seem to be important to Nathan based on his sessions?",
+        "retrieved_files": [
+          "nathan-05-19.pdf",
+          "nathan-04-14.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf",
+          "nathan-04-14.pdf",
+          "nathan-06-02.pdf",
+          "nathan-04-14.pdf",
+          "nathan-05-19.pdf",
+          "nathan-04-14.pdf",
+          "nathan-06-02.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: Am I conducted?\nBecause we're just not here on Monday.\nWe're still here the rest of the week.\nPerfect.\nSo we can fix it.\nAnd I need to fix your schedule.\nYour work schedule is about to come to an end.\nAugust 11th seems like a good time to continue.\nSo you have to watch when we're clicking through.\nfor their stuff to make sure it's not going to end.\nThe biggest issue, yeah, the biggest issue I have is when I just look like one week, and then I forget that we're on two-week schedules, and I miss a week, and then they get screwed.\nSo I just always go back to today, and then just one, two, click.\n\n\nAdditional context from 9 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "theme_inference",
+          "scores": {
+            "recall_at_5": 0.6666666666666666,
+            "recall_at_10": 1.0,
+            "mrr": 1.0,
+            "ndcg_at_10": 2.1321957377868976
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 1.0,
+          "fact_coverage": 0.0,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q011",
+        "type": "policy_comparison",
+        "question": "Did the case manager use the 2nd principle of effective intervention, enhancing intrinsic motivation, in Nathan's last meeting?",
+        "retrieved_files": [
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: Emailed? Okay.\nYeah. I've been having issues getting humbled by email.\nSo I don't know.\nI missed a couple of things I need to do for court.\nI don't know what I should do about that.\nshould do about that i even got on the website and looked up to his new email address and everything i wrote down his old his last time i was in here he changed emails um and I had because I had a I had a panel I had to go to because I just did a DUI court hearing and I just settled it but I had to do a victim impact panel and I needed to go to a hearing last week and I couldn't get it from my schedule I could take\n\nAdditional context from 9 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "policy_comparison",
+          "scores": {
+            "recall_at_5": 0.5,
+            "recall_at_10": 0.5,
+            "mrr": 1.0,
+            "ndcg_at_10": 2.7858706533121533
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 0.5,
+          "fact_coverage": 0.0,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q012",
+        "type": "policy_comparison",
+        "question": "Did the case manager confirm Robert's drug screen status per the check-in guidelines during his last session?",
+        "retrieved_files": [
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: Yeah.\nYou have up to 10 hours to use.\n6 to 10 is just 4 so you'd still have 6 hours to use\nokay let's do that what time do you want to schedule that for let's do 11 to 5 perfect you're good to do pretty much anything within center time just now bars, clubs, casinos, strip clubs places of common nuisance that will be not this Sunday but next Sunday i'm just gonna put it on for every sunday because you have the 10 hours to use every week\nokay um and if we ever need to move it to a different day or different time i don't have a problem with that in the slightest just let me know um i just would r\n\nAdditional context from 9 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "policy_comparison",
+          "scores": {
+            "recall_at_5": 0.5,
+            "recall_at_10": 0.5,
+            "mrr": 1.0,
+            "ndcg_at_10": 2.7858706533121533
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 0.5,
+          "fact_coverage": 0.0,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q013",
+        "type": "case_assessment",
+        "question": "What do you think are Nathan's biggest risks or needs?",
+        "retrieved_files": [
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "internal-programming.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "nathan-05-19.pdf",
+          "nathan-06-02.pdf",
+          "robert-5-21.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: Programs shall have written policies, procedures and established practices to assess caseloads\nsizes based on the risks, needs, and responsivity factors of clients. Every effort shall be made\nto match staff and clients based on risk, need, and responsivity factors. In programs in which\ncaseloads are the primary responsibility of case management staff, the ratio of case manager\nto residential client shall not exceed 1:20.\nIntent/Clarification: Specialized populations (e.g. Residential Dual Diagnosis Treatment,\nIntensive Residential Treatment, Sex Offender, etc.) will likely require more staff t\n\nAdditional context from 9 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "case_assessment",
+          "scores": {
+            "recall_at_5": 0.3333333333333333,
+            "recall_at_10": 0.6666666666666666,
+            "mrr": 0.2,
+            "ndcg_at_10": 0.34870224750355494
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 0.6666666666666666,
+          "fact_coverage": null,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q014",
+        "type": "case_assessment",
+        "question": "What do you think are Robert's biggest risks or needs?",
+        "retrieved_files": [
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "grievance-and-appeal.pdf",
+          "nathan-05-19.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "robert-5-21.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: The program shall have written policies, procedures and established practices that ensure\ncompliance with all elements of the federally mandated Prison Rape Elimination Act, PL 108-\n79 (PREA) and in accordance with contractual agreements requiring PREA compliance. Program\npolicies and procedures shall dictate and direct practices to meet PREA compliance in all of the\nfollowing areas as defined by the PREA standards:\n(a) Prevention and Responsive Planning\n(b) Training and Education\n(c) Screening for Risk of Sexual Victimization and Abusiveness\n(d) Reporting\n(e) Official Responses Following Resi\n\nAdditional context from 9 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "case_assessment",
+          "scores": {
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.5,
+            "mrr": 0.1,
+            "ndcg_at_10": 0.17723928678404774
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 0.5,
+          "fact_coverage": null,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q015",
+        "type": "relationship",
+        "question": "What is Nathan's relationship with his family like?",
+        "retrieved_files": [
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf",
+          "nathan-04-14.pdf",
+          "nathan-06-02.pdf",
+          "nathan-05-19.pdf",
+          "nathan-04-14.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: So we got that.\nAnd then 2011 Cherokee, right?\nNo.\nNo.\nAll right.\nAnd then any?\nI have that.\nSaturday I went to lunch.\nIt was on my schedule.\nSo you can, he files under however you want to do it.\nOkay. And then how about pay stubs?\n\nAdditional context from 9 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "relationship",
+          "scores": {
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0,
+            "ndcg_at_10": 2.446394630357186
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 1.0,
+          "fact_coverage": null,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q016",
+        "type": "relationship",
+        "question": "What does Robert's support system look like?",
+        "retrieved_files": [
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: Getting older, dude.\nThat's for sure.\nThat happens.\nAny issues with any friends or family?\nNo.\nGood.\nGood support system around you?\nYeah.\nOkay.\nAddress is the 1412 Payton Avenue?\nYes.\nPhone number ends in 9671?\n\nAdditional context from 9 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "relationship",
+          "scores": {
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 0.5,
+            "ndcg_at_10": 1.2474246260211674
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 1.0,
+          "fact_coverage": 1.0,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q017",
+        "type": "temporal",
+        "question": "What changed between Nathan's sessions from April to June?",
+        "retrieved_files": [
+          "nathan-04-14.pdf",
+          "nathan-06-02.pdf",
+          "nathan-04-14.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-05-19.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-05-19.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: That is good for that.\nI'm going to go back.\num just so you know i won't be here next monday\nso we're just gonna do two weeks and i'll see you on april 28th make things easier that'd be great i think that helps everyone else out when i do that kind of stuff instead of making trying to get you guys in here to see somebody that doesn't really work with you guys that much you know i\nmean\nyeah i had to do it with probation when i was in no more than street and i would see this girl and she's like asking these rolling depth questions\nso i'm like rick never has to do this she's like you doing\nwell a\n\nAdditional context from 9 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "temporal",
+          "scores": {
+            "recall_at_5": 0.6666666666666666,
+            "recall_at_10": 1.0,
+            "mrr": 1.0,
+            "ndcg_at_10": 2.1321957377868976
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 1.0,
+          "fact_coverage": null,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q018",
+        "type": "temporal",
+        "question": "What changed between Robert's two meetings?",
+        "retrieved_files": [
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-05-07.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: So I would definitely slow down for now.\num that's gonna take a while for it to build through that thousand three hundred thirty dollars um i just don't want you like i said to overpay it and then have to wait on a refund to come through from the county\nso so that 270 i can pay like my last two weeks\nyeah absolutely because by then you'll have some um drug screen cost build to that it's going to go up but between now and\nAugust it'll go up by the cost of dark screens so $15 for every dark screen between now and\nAugust so it might go up a substantial bit it may not depending on how many dark sc\n\nAdditional context from 9 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "temporal",
+          "scores": {
+            "recall_at_5": 0.5,
+            "recall_at_10": 1.0,
+            "mrr": 1.0,
+            "ndcg_at_10": 2.7858706533121533
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 1.0,
+          "fact_coverage": null,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q019",
+        "type": "no_evidence",
+        "question": "Did Nathan attend his welding class?",
+        "retrieved_files": [
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-05-19.pdf",
+          "nathan-06-02.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf",
+          "nathan-04-14.pdf",
+          "nathan-06-02.pdf",
+          "nathan-04-14.pdf",
+          "nathan-04-14.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: All right. And then how's life been going? How's your work? Good? Yes, ma'am.\nSpending time with family, doing all that good stuff? Yeah.\nAll right.\nAnd then you don't do any meetings, just like your classes, like course classes and stuff right i got a couple things that i put on there um i mean i should go to them and then next week i have one thing but that's this week i have two things that's it and then i want to if i pay that up can i go ahead and put a haircut for saturday yes and breakfast if i take my family to breakfast on saturday yes just a haircut on saturday and that and then i ha\n\nAdditional context from 9 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "answer_scores": {
+          "citation_correctness": null,
+          "fact_coverage": null,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0,
+          "no_evidence_correct": false,
+          "must_not_claim_violation": false
+        }
+      },
+      {
+        "id": "q020",
+        "type": "no_evidence",
+        "question": "Did Robert complete a swimming certification program?",
+        "retrieved_files": [
+          "robert-05-07.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: Nice.\nAnd then looking at locations for last week.\nThat was everywhere.\nComes with the job, right?\nI'm glad you're staying busy with that.\nsometimes it can be difficult when it's your own company so nah i'm pretty sure control is like yeah it's robert again that's okay though that's\nokay it's part of their job my son started working with me about a week ago and how's he doing he's doing pretty good poor girl he needs to go to the gym oh gosh\nokay but he goes what are you becoming a cop\nI was like no I'm just calling control for my house arrest oh my gosh when the field officer stopped by my ho\n\nAdditional context from 9 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "answer_scores": {
+          "citation_correctness": null,
+          "fact_coverage": null,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0,
+          "no_evidence_correct": false,
+          "must_not_claim_violation": false
+        }
+      },
+      {
+        "id": "q021",
+        "type": "no_evidence",
+        "question": "Does the grievance policy require a filing fee to submit an appeal?",
+        "retrieved_files": [
+          "grievance-and-appeal.pdf",
+          "grievance-and-appeal.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "grievance-and-appeal.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: Policy: This policy was developed as a guideline designed to allow participants to register grievances against a staff member in a fair and reasonable manner. These procedures provide guidelines for handling grievances and appeals by participants and staff in such a manner as to create a fair and balanced decision for the participant and staff member alike. The following general principles shall apply to each disciplinary action taken: 1. A conduct/incident report of the violation committed by a participant must be submitted by the staff member within twenty-four (24) hours of the incident occ\n\nAdditional context from 9 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "answer_scores": {
+          "citation_correctness": null,
+          "fact_coverage": null,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0,
+          "no_evidence_correct": false,
+          "must_not_claim_violation": false
+        }
+      }
+    ]
+  },
+  "reranker_off": {
+    "retrieval": {
+      "overall": {
+        "recall_at_5": 0.712962962962963,
+        "recall_at_10": 0.8425925925925926,
+        "mrr": 0.8222222222222223,
+        "ndcg_at_10": 2.182585425464925
+      },
+      "per_type": {
+        "reference_lookup": {
+          "recall_at_5": 0.6666666666666666,
+          "recall_at_10": 0.6666666666666666,
+          "mrr": 0.6666666666666666,
+          "ndcg_at_10": 2.4033800363378024
+        },
+        "transcript_lookup": {
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_10": 2.5102320929226085
+        },
+        "cross_transcript_summary": {
+          "recall_at_5": 0.8333333333333333,
+          "recall_at_10": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_10": 2.4590331955495257
+        },
+        "theme_inference": {
+          "recall_at_5": 0.8333333333333333,
+          "recall_at_10": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_10": 2.4590331955495257
+        },
+        "policy_comparison": {
+          "recall_at_5": 0.5,
+          "recall_at_10": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_10": 2.7858706533121533
+        },
+        "case_assessment": {
+          "recall_at_5": 0.16666666666666666,
+          "recall_at_10": 0.5833333333333333,
+          "mrr": 0.15000000000000002,
+          "ndcg_at_10": 0.26297076714380135
+        },
+        "relationship": {
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "mrr": 0.75,
+          "ndcg_at_10": 1.8469096281891768
+        },
+        "temporal": {
+          "recall_at_5": 0.5833333333333333,
+          "recall_at_10": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_10": 2.4590331955495257
+        }
+      }
+    },
+    "answer": {
+      "overall": {
+        "groundedness": 1.0,
+        "unsupported_claim_rate": 0.0,
+        "citation_correctness": 0.8888888888888888,
+        "fact_coverage": 0.14102564102564102,
+        "answer_relevance": null,
+        "no_evidence_accuracy": 0.0
+      }
+    },
+    "no_evidence_violations": [],
+    "records": [
+      {
+        "id": "q001",
+        "type": "reference_lookup",
+        "question": "When should a client submit a grievance?",
+        "retrieved_files": [
+          "grievance-and-appeal.pdf",
+          "grievance-and-appeal.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "grievance-and-appeal.pdf",
+          "grievance-and-appeal.pdf",
+          "grievance-and-appeal.pdf",
+          "grievance-and-appeal.pdf",
+          "grievance-and-appeal.pdf",
+          "grievance-and-appeal.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: Policy: This policy was developed as a guideline designed to allow participants to register grievances against a staff member in a fair and reasonable manner. These procedures provide guidelines for handling grievances and appeals by participants and staff in such a manner as to create a fair and balanced decision for the participant and staff member alike. The following general principles shall apply to each disciplinary action taken: 1. A conduct/incident report of the violation committed by a participant must be submitted by the staff member within twenty-four (24) hours of the incident occ\n\nAdditional context from 10 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "reference_lookup",
+          "scores": {
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0,
+            "ndcg_at_10": 3.754494511770458
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 1.0,
+          "fact_coverage": 0.3333333333333333,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q002",
+        "type": "reference_lookup",
+        "question": "What must be confirmed about a client's latest drug screen during a check-in?",
+        "retrieved_files": [
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: Can you please contact?\nI don't like the police.\nplease i like them as important ones don't like to have contact with them but they don't want to get in trouble\nyeah say the wrong thing then they get crazy all right checking court fact every day\nright yep any thoughts dreams about using or drinking okay how's work been going it's good slow that's why my fees got behind i had a slow work weeks like today i was off 12 30. stressful work stops but the bills don't\nAll right. And then how's life been going? How's your work? Good? Yes, ma'am.\nSpending time with family, doing all that good stuff? Yea\n\nAdditional context from 17 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "reference_lookup",
+          "scores": {
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_10": 0.0
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 0.0,
+          "fact_coverage": 0.0,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q003",
+        "type": "reference_lookup",
+        "question": "When must a urine sample be taken after a client's admission into the program?",
+        "retrieved_files": [
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "nathan-06-02.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "robert-5-21.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "robert-5-21.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "robert-5-21.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "nathan-06-02.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "robert-5-21.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "nathan-06-02.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "nathan-04-14.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "internal-programming.pdf",
+          "8 Principles of Effective Intervention.pdf",
+          "grievance-and-appeal.pdf",
+          "nathan-05-19.pdf",
+          "nathan-06-02.pdf",
+          "check-in-guidelines.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "nathan-05-19.pdf",
+          "grievance-and-appeal.pdf",
+          "8 Principles of Effective Intervention.pdf",
+          "nathan-06-02.pdf",
+          "robert-5-21.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: CS-020: Client Property\n\nAdditional context from 32 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "reference_lookup",
+          "scores": {
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0,
+            "ndcg_at_10": 3.455645597242949
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 1.0,
+          "fact_coverage": 0.0,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q004",
+        "type": "transcript_lookup",
+        "question": "What happened with Nathan's drug screen in his April 14 session?",
+        "retrieved_files": [
+          "nathan-04-14.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf",
+          "nathan-06-02.pdf",
+          "nathan-05-19.pdf",
+          "nathan-04-14.pdf",
+          "nathan-05-19.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf",
+          "nathan-04-14.pdf",
+          "nathan-04-14.pdf",
+          "nathan-04-14.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-04-14.pdf",
+          "nathan-05-19.pdf",
+          "nathan-04-14.pdf",
+          "nathan-06-02.pdf",
+          "nathan-04-14.pdf",
+          "nathan-06-02.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: That is good for that.\nI'm going to go back.\num just so you know i won't be here next monday\nso we're just gonna do two weeks and i'll see you on april 28th make things easier that'd be great i think that helps everyone else out when i do that kind of stuff instead of making trying to get you guys in here to see somebody that doesn't really work with you guys that much you know i\nmean\nyeah i had to do it with probation when i was in no more than street and i would see this girl and she's like asking these rolling depth questions\nso i'm like rick never has to do this she's like you doing\nwell a\n\nAdditional context from 30 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "transcript_lookup",
+          "scores": {
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0,
+            "ndcg_at_10": 1.3562071871080221
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 1.0,
+          "fact_coverage": 0.0,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q005",
+        "type": "transcript_lookup",
+        "question": "What was the result of Nathan's last drug screen mentioned in his June 2nd session?",
+        "retrieved_files": [
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: Can you please contact?\nI don't like the police.\nplease i like them as important ones don't like to have contact with them but they don't want to get in trouble\nyeah say the wrong thing then they get crazy all right checking court fact every day\nright yep any thoughts dreams about using or drinking okay how's work been going it's good slow that's why my fees got behind i had a slow work weeks like today i was off 12 30. stressful work stops but the bills don't\nAll right. And then how's life been going? How's your work? Good? Yes, ma'am.\nSpending time with family, doing all that good stuff? Yea\n\nAdditional context from 17 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "transcript_lookup",
+          "scores": {
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0,
+            "ndcg_at_10": 4.543559338088346
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 1.0,
+          "fact_coverage": 0.0,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q006",
+        "type": "transcript_lookup",
+        "question": "What did Robert say about his home address in his May 7 session?",
+        "retrieved_files": [
+          "robert-05-07.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-05-07.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: Nice.\nAnd then looking at locations for last week.\nThat was everywhere.\nComes with the job, right?\nI'm glad you're staying busy with that.\nsometimes it can be difficult when it's your own company so nah i'm pretty sure control is like yeah it's robert again that's okay though that's\nokay it's part of their job my son started working with me about a week ago and how's he doing he's doing pretty good poor girl he needs to go to the gym oh gosh\nokay but he goes what are you becoming a cop\nI was like no I'm just calling control for my house arrest oh my gosh when the field officer stopped by my ho\n\nAdditional context from 29 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "transcript_lookup",
+          "scores": {
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0,
+            "ndcg_at_10": 1.6309297535714575
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 1.0,
+          "fact_coverage": 0.0,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q007",
+        "type": "cross_transcript_summary",
+        "question": "What are some key themes that Robert talks about across his sessions?",
+        "retrieved_files": [
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-05-07.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: I just won't be in the office, so if you call and leave me a voicemail,\nI'm not going to hear it until Tuesday.\nAnd I don't want to do that to you.\nSo shoot me an email, let me know.\nIf you don't hear back from me and it's something that you need taken care of sooner rather than later, call under control, see if there's a case manager here you can talk to if you can't get a hold of me.\nOkay.\nAll right.\nLooking at locations for last week.\nwhoo up in Fort Wayne last week yeah picking up my daughter Ivan yeah no I need to add a little bit of drive time\nyeah that's fine I had to fly up there and f\n\nAdditional context from 34 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "cross_transcript_summary",
+          "scores": {
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0,
+            "ndcg_at_10": 2.7858706533121533
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 1.0,
+          "fact_coverage": 0.0,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q008",
+        "type": "cross_transcript_summary",
+        "question": "What topics come up repeatedly across Nathan's check-in sessions?",
+        "retrieved_files": [
+          "nathan-04-14.pdf",
+          "nathan-06-02.pdf",
+          "nathan-04-14.pdf",
+          "nathan-04-14.pdf",
+          "nathan-04-14.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-05-19.pdf",
+          "nathan-06-02.pdf",
+          "nathan-04-14.pdf",
+          "nathan-05-19.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-04-14.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-04-14.pdf",
+          "nathan-04-14.pdf",
+          "nathan-04-14.pdf",
+          "nathan-05-19.pdf",
+          "nathan-06-02.pdf",
+          "nathan-04-14.pdf",
+          "nathan-04-14.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf",
+          "nathan-06-02.pdf",
+          "nathan-05-19.pdf",
+          "nathan-04-14.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: mean\nyeah i had to do it with probation when i was in no more than street and i would see this girl and she's like asking these rolling depth questions\nso i'm like rick never has to do this she's like you doing\nwell and she's like i looked at your case uh do you need to know health services you're all bro you said i never asked you that stuff\nyeah huh you said i never asked you that my regular probation officer never did oh okay how life was going how work was going just like you do\nyeah and she was like wanting to know like my mental health and i'm like girl like who's that it was at adult pr\n\nAdditional context from 29 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "cross_transcript_summary",
+          "scores": {
+            "recall_at_5": 0.6666666666666666,
+            "recall_at_10": 1.0,
+            "mrr": 1.0,
+            "ndcg_at_10": 2.1321957377868976
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 1.0,
+          "fact_coverage": 0.0,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q009",
+        "type": "theme_inference",
+        "question": "What things seem to be important to Robert?",
+        "retrieved_files": [
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: Nice.\nAnd then looking at locations for last week.\nThat was everywhere.\nComes with the job, right?\nI'm glad you're staying busy with that.\nsometimes it can be difficult when it's your own company so nah i'm pretty sure control is like yeah it's robert again that's okay though that's\nokay it's part of their job my son started working with me about a week ago and how's he doing he's doing pretty good poor girl he needs to go to the gym oh gosh\nokay but he goes what are you becoming a cop\nI was like no I'm just calling control for my house arrest oh my gosh when the field officer stopped by my ho\n\nAdditional context from 29 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "theme_inference",
+          "scores": {
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0,
+            "ndcg_at_10": 2.7858706533121533
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 1.0,
+          "fact_coverage": 0.5,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q010",
+        "type": "theme_inference",
+        "question": "What things seem to be important to Nathan based on his sessions?",
+        "retrieved_files": [
+          "nathan-05-19.pdf",
+          "nathan-04-14.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf",
+          "nathan-04-14.pdf",
+          "nathan-06-02.pdf",
+          "nathan-04-14.pdf",
+          "nathan-05-19.pdf",
+          "nathan-04-14.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-04-14.pdf",
+          "nathan-06-02.pdf",
+          "nathan-04-14.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf",
+          "nathan-06-02.pdf",
+          "nathan-05-19.pdf",
+          "nathan-06-02.pdf",
+          "nathan-04-14.pdf",
+          "nathan-05-19.pdf",
+          "nathan-06-02.pdf",
+          "nathan-04-14.pdf",
+          "nathan-04-14.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: Am I conducted?\nBecause we're just not here on Monday.\nWe're still here the rest of the week.\nPerfect.\nSo we can fix it.\nAnd I need to fix your schedule.\nYour work schedule is about to come to an end.\nAugust 11th seems like a good time to continue.\nSo you have to watch when we're clicking through.\nfor their stuff to make sure it's not going to end.\nThe biggest issue, yeah, the biggest issue I have is when I just look like one week, and then I forget that we're on two-week schedules, and I miss a week, and then they get screwed.\nSo I just always go back to today, and then just one, two, click.\n\n\nAdditional context from 29 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "theme_inference",
+          "scores": {
+            "recall_at_5": 0.6666666666666666,
+            "recall_at_10": 1.0,
+            "mrr": 1.0,
+            "ndcg_at_10": 2.1321957377868976
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 1.0,
+          "fact_coverage": 0.0,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q011",
+        "type": "policy_comparison",
+        "question": "Did the case manager use the 2nd principle of effective intervention, enhancing intrinsic motivation, in Nathan's last meeting?",
+        "retrieved_files": [
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: Emailed? Okay.\nYeah. I've been having issues getting humbled by email.\nSo I don't know.\nI missed a couple of things I need to do for court.\nI don't know what I should do about that.\nshould do about that i even got on the website and looked up to his new email address and everything i wrote down his old his last time i was in here he changed emails um and I had because I had a I had a panel I had to go to because I just did a DUI court hearing and I just settled it but I had to do a victim impact panel and I needed to go to a hearing last week and I couldn't get it from my schedule I could take\n\nAdditional context from 17 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "policy_comparison",
+          "scores": {
+            "recall_at_5": 0.5,
+            "recall_at_10": 0.5,
+            "mrr": 1.0,
+            "ndcg_at_10": 2.7858706533121533
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 0.5,
+          "fact_coverage": 0.0,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q012",
+        "type": "policy_comparison",
+        "question": "Did the case manager confirm Robert's drug screen status per the check-in guidelines during his last session?",
+        "retrieved_files": [
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: Yeah.\nYou have up to 10 hours to use.\n6 to 10 is just 4 so you'd still have 6 hours to use\nokay let's do that what time do you want to schedule that for let's do 11 to 5 perfect you're good to do pretty much anything within center time just now bars, clubs, casinos, strip clubs places of common nuisance that will be not this Sunday but next Sunday i'm just gonna put it on for every sunday because you have the 10 hours to use every week\nokay um and if we ever need to move it to a different day or different time i don't have a problem with that in the slightest just let me know um i just would r\n\nAdditional context from 29 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "policy_comparison",
+          "scores": {
+            "recall_at_5": 0.5,
+            "recall_at_10": 0.5,
+            "mrr": 1.0,
+            "ndcg_at_10": 2.7858706533121533
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 0.5,
+          "fact_coverage": 0.0,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q013",
+        "type": "case_assessment",
+        "question": "What do you think are Nathan's biggest risks or needs?",
+        "retrieved_files": [
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "internal-programming.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "nathan-05-19.pdf",
+          "nathan-06-02.pdf",
+          "robert-5-21.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "nathan-05-19.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "internal-programming.pdf",
+          "nathan-04-14.pdf",
+          "8 Principles of Effective Intervention.pdf",
+          "robert-5-21.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "8 Principles of Effective Intervention.pdf",
+          "8 Principles of Effective Intervention.pdf",
+          "nathan-06-02.pdf",
+          "8 Principles of Effective Intervention.pdf",
+          "nathan-06-02.pdf",
+          "internal-programming.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "robert-5-21.pdf",
+          "internal-programming.pdf",
+          "nathan-05-19.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "robert-05-07.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "robert-5-21.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "check-in-guidelines.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "robert-5-21.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "robert-5-21.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "nathan-06-02.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "robert-05-07.pdf",
+          "nathan-05-19.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "check-in-guidelines.pdf",
+          "robert-5-21.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: Programs shall have written policies, procedures and established practices to assess caseloads\nsizes based on the risks, needs, and responsivity factors of clients. Every effort shall be made\nto match staff and clients based on risk, need, and responsivity factors. In programs in which\ncaseloads are the primary responsibility of case management staff, the ratio of case manager\nto residential client shall not exceed 1:20.\nIntent/Clarification: Specialized populations (e.g. Residential Dual Diagnosis Treatment,\nIntensive Residential Treatment, Sex Offender, etc.) will likely require more staff t\n\nAdditional context from 48 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "case_assessment",
+          "scores": {
+            "recall_at_5": 0.3333333333333333,
+            "recall_at_10": 0.6666666666666666,
+            "mrr": 0.2,
+            "ndcg_at_10": 0.34870224750355494
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 1.0,
+          "fact_coverage": null,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q014",
+        "type": "case_assessment",
+        "question": "What do you think are Robert's biggest risks or needs?",
+        "retrieved_files": [
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "grievance-and-appeal.pdf",
+          "nathan-05-19.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "robert-5-21.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "robert-05-07.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "robert-5-21.pdf",
+          "internal-programming.pdf",
+          "nathan-05-19.pdf",
+          "8 Principles of Effective Intervention.pdf",
+          "nathan-06-02.pdf",
+          "robert-5-21.pdf",
+          "8 Principles of Effective Intervention.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "8 Principles of Effective Intervention.pdf",
+          "nathan-04-14.pdf",
+          "internal-programming.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "internal-programming.pdf",
+          "nathan-06-02.pdf",
+          "internal-programming.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "nathan-04-14.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "robert-05-07.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "robert-05-07.pdf",
+          "grievance-and-appeal.pdf",
+          "robert-5-21.pdf",
+          "grievance-and-appeal.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: The program shall have written policies, procedures and established practices that ensure\ncompliance with all elements of the federally mandated Prison Rape Elimination Act, PL 108-\n79 (PREA) and in accordance with contractual agreements requiring PREA compliance. Program\npolicies and procedures shall dictate and direct practices to meet PREA compliance in all of the\nfollowing areas as defined by the PREA standards:\n(a) Prevention and Responsive Planning\n(b) Training and Education\n(c) Screening for Risk of Sexual Victimization and Abusiveness\n(d) Reporting\n(e) Official Responses Following Resi\n\nAdditional context from 46 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "case_assessment",
+          "scores": {
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.5,
+            "mrr": 0.1,
+            "ndcg_at_10": 0.17723928678404774
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 1.0,
+          "fact_coverage": null,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q015",
+        "type": "relationship",
+        "question": "What is Nathan's relationship with his family like?",
+        "retrieved_files": [
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf",
+          "nathan-04-14.pdf",
+          "nathan-06-02.pdf",
+          "nathan-05-19.pdf",
+          "nathan-04-14.pdf",
+          "nathan-06-02.pdf",
+          "nathan-05-19.pdf",
+          "nathan-04-14.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf",
+          "nathan-06-02.pdf",
+          "nathan-05-19.pdf",
+          "nathan-06-02.pdf",
+          "nathan-05-19.pdf",
+          "nathan-04-14.pdf",
+          "nathan-05-19.pdf",
+          "nathan-04-14.pdf",
+          "nathan-04-14.pdf",
+          "nathan-04-14.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-04-14.pdf",
+          "nathan-04-14.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: So we got that.\nAnd then 2011 Cherokee, right?\nNo.\nNo.\nAll right.\nAnd then any?\nI have that.\nSaturday I went to lunch.\nIt was on my schedule.\nSo you can, he files under however you want to do it.\nOkay. And then how about pay stubs?\n\nAdditional context from 31 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "relationship",
+          "scores": {
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0,
+            "ndcg_at_10": 2.446394630357186
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 1.0,
+          "fact_coverage": null,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q016",
+        "type": "relationship",
+        "question": "What does Robert's support system look like?",
+        "retrieved_files": [
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-05-07.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: Getting older, dude.\nThat's for sure.\nThat happens.\nAny issues with any friends or family?\nNo.\nGood.\nGood support system around you?\nYeah.\nOkay.\nAddress is the 1412 Payton Avenue?\nYes.\nPhone number ends in 9671?\n\nAdditional context from 29 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "relationship",
+          "scores": {
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 0.5,
+            "ndcg_at_10": 1.2474246260211674
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 1.0,
+          "fact_coverage": 1.0,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q017",
+        "type": "temporal",
+        "question": "What changed between Nathan's sessions from April to June?",
+        "retrieved_files": [
+          "nathan-04-14.pdf",
+          "nathan-06-02.pdf",
+          "nathan-04-14.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-05-19.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-05-19.pdf",
+          "nathan-04-14.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf",
+          "nathan-04-14.pdf",
+          "nathan-04-14.pdf",
+          "nathan-04-14.pdf",
+          "nathan-06-02.pdf",
+          "nathan-04-14.pdf",
+          "nathan-05-19.pdf",
+          "nathan-06-02.pdf",
+          "nathan-04-14.pdf",
+          "nathan-06-02.pdf",
+          "nathan-04-14.pdf",
+          "nathan-04-14.pdf",
+          "nathan-04-14.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf",
+          "nathan-04-14.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: That is good for that.\nI'm going to go back.\num just so you know i won't be here next monday\nso we're just gonna do two weeks and i'll see you on april 28th make things easier that'd be great i think that helps everyone else out when i do that kind of stuff instead of making trying to get you guys in here to see somebody that doesn't really work with you guys that much you know i\nmean\nyeah i had to do it with probation when i was in no more than street and i would see this girl and she's like asking these rolling depth questions\nso i'm like rick never has to do this she's like you doing\nwell a\n\nAdditional context from 30 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "temporal",
+          "scores": {
+            "recall_at_5": 0.6666666666666666,
+            "recall_at_10": 1.0,
+            "mrr": 1.0,
+            "ndcg_at_10": 2.1321957377868976
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 1.0,
+          "fact_coverage": null,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q018",
+        "type": "temporal",
+        "question": "What changed between Robert's two meetings?",
+        "retrieved_files": [
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-05-07.pdf",
+          "robert-05-07.pdf",
+          "robert-05-07.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: So I would definitely slow down for now.\num that's gonna take a while for it to build through that thousand three hundred thirty dollars um i just don't want you like i said to overpay it and then have to wait on a refund to come through from the county\nso so that 270 i can pay like my last two weeks\nyeah absolutely because by then you'll have some um drug screen cost build to that it's going to go up but between now and\nAugust it'll go up by the cost of dark screens so $15 for every dark screen between now and\nAugust so it might go up a substantial bit it may not depending on how many dark sc\n\nAdditional context from 30 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "retrieval": {
+          "type": "temporal",
+          "scores": {
+            "recall_at_5": 0.5,
+            "recall_at_10": 1.0,
+            "mrr": 1.0,
+            "ndcg_at_10": 2.7858706533121533
+          }
+        },
+        "answer_scores": {
+          "citation_correctness": 1.0,
+          "fact_coverage": null,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0
+        }
+      },
+      {
+        "id": "q019",
+        "type": "no_evidence",
+        "question": "Did Nathan attend his welding class?",
+        "retrieved_files": [
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-05-19.pdf",
+          "nathan-06-02.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf",
+          "nathan-04-14.pdf",
+          "nathan-06-02.pdf",
+          "nathan-04-14.pdf",
+          "nathan-04-14.pdf",
+          "nathan-04-14.pdf",
+          "nathan-04-14.pdf",
+          "nathan-06-02.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf",
+          "nathan-04-14.pdf",
+          "nathan-04-14.pdf",
+          "nathan-04-14.pdf",
+          "nathan-05-19.pdf",
+          "nathan-06-02.pdf",
+          "nathan-06-02.pdf",
+          "nathan-04-14.pdf",
+          "nathan-06-02.pdf",
+          "nathan-04-14.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf",
+          "nathan-05-19.pdf",
+          "nathan-06-02.pdf",
+          "nathan-05-19.pdf",
+          "nathan-06-02.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: All right. And then how's life been going? How's your work? Good? Yes, ma'am.\nSpending time with family, doing all that good stuff? Yeah.\nAll right.\nAnd then you don't do any meetings, just like your classes, like course classes and stuff right i got a couple things that i put on there um i mean i should go to them and then next week i have one thing but that's this week i have two things that's it and then i want to if i pay that up can i go ahead and put a haircut for saturday yes and breakfast if i take my family to breakfast on saturday yes just a haircut on saturday and that and then i ha\n\nAdditional context from 29 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "answer_scores": {
+          "citation_correctness": null,
+          "fact_coverage": null,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0,
+          "no_evidence_correct": false,
+          "must_not_claim_violation": false
+        }
+      },
+      {
+        "id": "q020",
+        "type": "no_evidence",
+        "question": "Did Robert complete a swimming certification program?",
+        "retrieved_files": [
+          "robert-05-07.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-05-07.pdf",
+          "robert-05-07.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-5-21.pdf",
+          "robert-5-21.pdf",
+          "robert-05-07.pdf",
+          "robert-05-07.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: Nice.\nAnd then looking at locations for last week.\nThat was everywhere.\nComes with the job, right?\nI'm glad you're staying busy with that.\nsometimes it can be difficult when it's your own company so nah i'm pretty sure control is like yeah it's robert again that's okay though that's\nokay it's part of their job my son started working with me about a week ago and how's he doing he's doing pretty good poor girl he needs to go to the gym oh gosh\nokay but he goes what are you becoming a cop\nI was like no I'm just calling control for my house arrest oh my gosh when the field officer stopped by my ho\n\nAdditional context from 31 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "answer_scores": {
+          "citation_correctness": null,
+          "fact_coverage": null,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0,
+          "no_evidence_correct": false,
+          "must_not_claim_violation": false
+        }
+      },
+      {
+        "id": "q021",
+        "type": "no_evidence",
+        "question": "Does the grievance policy require a filing fee to submit an appeal?",
+        "retrieved_files": [
+          "grievance-and-appeal.pdf",
+          "grievance-and-appeal.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "grievance-and-appeal.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf",
+          "2022 Colorado Community Corrections Standards copy.pdf"
+        ],
+        "answer": "Based on the retrieved evidence: Policy: This policy was developed as a guideline designed to allow participants to register grievances against a staff member in a fair and reasonable manner. These procedures provide guidelines for handling grievances and appeals by participants and staff in such a manner as to create a fair and balanced decision for the participant and staff member alike. The following general principles shall apply to each disciplinary action taken: 1. A conduct/incident report of the violation committed by a participant must be submitted by the staff member within twenty-four (24) hours of the incident occ\n\nAdditional context from 11 other sources supports this.",
+        "grounding_status": "SUPPORTED",
+        "answer_scores": {
+          "citation_correctness": null,
+          "fact_coverage": null,
+          "answer_relevance": null,
+          "groundedness": 1.0,
+          "unsupported_claim_rate": 0.0,
+          "no_evidence_correct": false,
+          "must_not_claim_violation": false
+        }
+      }
+    ]
+  }
+}

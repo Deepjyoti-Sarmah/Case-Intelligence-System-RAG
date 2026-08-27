@@ -28,10 +28,12 @@ export type QueryResponse = {
   metadata?: {
     retrieval_count?: number;
     latency_ms?: number;
+    duration_ms?: number;
+    grounding_status?: "SUPPORTED" | "PARTIALLY_SUPPORTED" | "NO_EVIDENCE";
   };
-  // Phase 8 grounding may add these; frontend tolerates them but does not render raw JSON
   claims?: unknown;
   confidence?: string;
 };
 
 export type AppStatus = "idle" | "loading" | "success" | "error" | "empty";
+

@@ -57,8 +57,25 @@ def hybrid_search(session: Session, question: str, plan: QueryPlan | None = None
     if plan is None:
         plan = plan_query(question)
     lex = lexical_search(session, plan)
-    vec = vector_search(session, plan)
-    fused = reciprocal_rank_fusion(lex, vec)
+    # for pure policy lookup, lexical is authoritative — skip noisy dummy vector
+    if plan.sources == ["policy"]:
+        fused = [
+            HybridCandidate(
+                chunk_id=c.chunk_id,
+                document_id=c.document_id,
+                file_name=c.file_name,
+                text=c.text,
+                retrieval_text=c.retrieval_text,
+                rrf_score=c.score,
+                lexical_rank=c.rank,
+                vector_rank=None,
+            )
+            for c in lex
+        ]
+        fused.sort(key=lambda x: x.rrf_score, reverse=True)
+    else:
+        vec = vector_search(session, plan)
+        fused = reciprocal_rank_fusion(lex, vec)
     do_rerank = rerank if rerank is not None else settings.enable_reranker
     if do_rerank:
         try:

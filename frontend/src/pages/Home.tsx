@@ -6,25 +6,19 @@ import SourcesList from "../components/SourcesList";
 import StateBanner from "../components/StateBanner";
 import type { AppStatus, Source } from "../types";
 
-/**
- * Single page — spec §36 layout:
- * Header | Ask a question [input + Ask] | Answer | Sources / Evidence
- * 5 states: idle | loading | success | error | empty
- * No chat history, no auth, no extra product features.
- */
 export default function Home() {
   const [question, setQuestion] = useState("");
   const [status, setStatus] = useState<AppStatus>("idle");
   const [answer, setAnswer] = useState("");
   const [sources, setSources] = useState<Source[]>([]);
+  const [groundingStatus, setGroundingStatus] = useState<"SUPPORTED" | "PARTIALLY_SUPPORTED" | "NO_EVIDENCE">("SUPPORTED");
   const [error, setError] = useState("");
   const abortRef = useRef<AbortController | null>(null);
 
-  const ask = async () => {
-    const q = question.trim();
+  const ask = async (questionOverride?: string) => {
+    const q = (questionOverride ?? question).trim();
     if (!q) return;
 
-    // Abort previous if still in-flight (bounded retries handled backend-side per §39)
     abortRef.current?.abort();
     const ac = new AbortController();
     abortRef.current = ac;
@@ -34,19 +28,20 @@ export default function Home() {
     try {
       const data = await postQuery({ question: q, options: { stream: false } }, { signal: ac.signal });
 
-      // No-evidence contract: empty answer or empty sources with no answer -> empty state
-      const hasAnswer = typeof data.answer === "string" && data.answer.trim().length > 0;
-      if (!hasAnswer) {
+      const statusFromMeta = data.metadata?.grounding_status;
+      const isNoEvidence = statusFromMeta === "NO_EVIDENCE" || !data.answer || data.answer.trim().length === 0;
+
+      if (isNoEvidence) {
         setAnswer("");
         setSources(data.sources ?? []);
+        setGroundingStatus("NO_EVIDENCE");
         setStatus("empty");
         return;
       }
 
-      // Distinguish empty vs success: if sources empty but answer present, still success
-      // (grader checks citations — backend will populate sources; frontend tolerates either)
       setAnswer(data.answer);
       setSources(data.sources ?? []);
+      setGroundingStatus((statusFromMeta as any) || "SUPPORTED");
       setStatus("success");
     } catch (e: unknown) {
       if (e instanceof DOMException && e.name === "AbortError") return;
@@ -56,11 +51,45 @@ export default function Home() {
   };
 
   return (
-    <div style={{ maxWidth: 840, margin: "0 auto", padding: 24, fontFamily: "system-ui, -apple-system, Segoe UI, sans-serif", background: "#f6f6f7", minHeight: "100vh" }}>
-      <header style={{ marginBottom: 16 }}>
-        <h1 style={{ margin: 0, fontSize: 26, letterSpacing: -0.3 }}>AI Case Intelligence</h1>
-        <p style={{ margin: "6px 0 0", color: "#666", fontSize: 14 }}>
-          Ask open-ended questions over transcripts + reference documents. Every answer is grounded in retrieved evidence.
+    <div
+      style={{
+        maxWidth: 900,
+        margin: "0 auto",
+        padding: "32px 20px 48px",
+        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+        minHeight: "100vh",
+      }}
+    >
+      <header
+        style={{
+          marginBottom: 28,
+          paddingBottom: 20,
+          borderBottom: "1px solid #334155",
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>
+          <div
+            style={{
+              width: 36,
+              height: 36,
+              borderRadius: 8,
+              background: "linear-gradient(135deg, #6366f1 0%, #3b82f6 100%)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontWeight: 700,
+              color: "#ffffff",
+              fontSize: 18,
+            }}
+          >
+            CI
+          </div>
+          <h1 style={{ margin: 0, fontSize: 26, fontWeight: 700, letterSpacing: "-0.5px", color: "#f8fafc" }}>
+            Case Intelligence System
+          </h1>
+        </div>
+        <p style={{ margin: 0, color: "#94a3b8", fontSize: 14, lineHeight: 1.5 }}>
+          Evidence retrieval & cross-source reasoning application over client transcripts and correctional policies.
         </p>
       </header>
 
@@ -71,17 +100,27 @@ export default function Home() {
       ) : null}
 
       {status === "success" && (
-        <>
-          <AnswerPanel answer={answer} />
+        <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+          <AnswerPanel answer={answer} groundingStatus={groundingStatus} />
           <SourcesList sources={sources} />
-        </>
+        </div>
       )}
 
       {status === "empty" && sources.length > 0 && <SourcesList sources={sources} />}
 
-      <footer style={{ marginTop: 24, color: "#888", fontSize: 12, textAlign: "center" }}>
-        Evidence is retrieved before generation; citations come from the database, not the model.
+      <footer
+        style={{
+          marginTop: 40,
+          paddingTop: 16,
+          borderTop: "1px solid #1e293b",
+          color: "#64748b",
+          fontSize: 12,
+          textAlign: "center",
+        }}
+      >
+        Evidence is retrieved before LLM generation • Citations come from database provenance • Speaker attribution defaults to unknown
       </footer>
     </div>
   );
 }
+

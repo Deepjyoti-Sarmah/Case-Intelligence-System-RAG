@@ -27,21 +27,46 @@ def lexical_search(session: Session, plan: QueryPlan, top_k: int | None = None) 
         return []
     import re
     raw_terms = [t.replace("'", "") for t in re.findall(r"[a-zA-Z']+", q.lower()) if len(t) > 2]
-    stop = {"when","should","what","happened","with","about","should","client","would","could","should","have","has","been","were","are","is","the","and","for","you","your"}
+    stop = {
+        "when", "should", "what", "happened", "with", "about", "should", "client",
+        "would", "could", "should", "have", "has", "been", "were", "are", "is",
+        "the", "and", "for", "you", "your", "did", "does", "this", "that", "will",
+        "from", "into", "completed", "like", "they", "them", "some", "more",
+        "most", "than", "then", "which", "where", "whom", "whose", "why", "how",
+        "themes", "theme", "topics", "topic", "session", "sessions", "meeting",
+        "meetings", "guidelines", "guideline", "changed", "change", "changes",
+        "difference", "differences", "compare", "comparison", "summary",
+        "summarize", "assessment", "relationship", "support", "system",
+        "manager", "follow", "followed", "according", "details", "detailed",
+        "happen", "talks", "talk", "talked", "discuss", "discussed", "discusses",
+        "regarding", "concerning", "across", "between", "during", "biggest",
+        "risk", "risks", "need", "needs", "think", "seems", "important",
+    }
     terms = [t for t in raw_terms if t not in stop]
     if not terms:
         terms = raw_terms
-    # pick 2 rarest terms by DF for better precision on reference lookups
-    try:
-        scored = []
-        for term in terms:
-            cnt = session.execute(text("SELECT count(*) FROM chunks WHERE retrieval_text ILIKE :pat"), {"pat": f"%{term}%"}).scalar() or 999
-            scored.append((cnt, term))
-        scored.sort()
-        terms = [t for _, t in scored[:2]]
-    except Exception:
-        terms = terms[:2]
-    q_or = " | ".join(terms) if terms else q
+
+    # Only include terms that actually exist in the database (count > 0)
+    valid_scored = []
+    for term in terms:
+        try:
+            cnt = session.execute(
+                text("SELECT count(*) FROM chunks WHERE retrieval_text ILIKE :pat"),
+                {"pat": f"%{term}%"},
+            ).scalar() or 0
+            if cnt > 0:
+                valid_scored.append((cnt, term))
+        except Exception:
+            pass
+
+    if valid_scored:
+        valid_scored.sort()
+        search_terms = [t for _, t in valid_scored[:5]]
+    else:
+        search_terms = terms[:5]
+
+    q_or = " | ".join(search_terms) if search_terms else q
+
     sql = text("""
         SELECT c.id as chunk_id, c.document_id, d.file_name, c.text, c.retrieval_text,
                ts_rank_cd(to_tsvector('english', c.retrieval_text), to_tsquery('english', :q)) as score
@@ -51,13 +76,33 @@ def lexical_search(session: Session, plan: QueryPlan, top_k: int | None = None) 
         ORDER BY score DESC
         LIMIT :topk
     """)
-    q = q_or
-    # apply hard filters manually by adding WHERE clauses if needed — for phase 4 we filter in python if needed
-    rows = session.execute(sql, {"q": q, "topk": top_k * 3}).mappings().all()
-    # python-side filtering for plan constraints (simple, keeps SQL simple for phase 4)
+
+    rows = []
+    try:
+        rows = session.execute(sql, {"q": q_or, "topk": top_k * 3}).mappings().all()
+    except Exception:
+        rows = []
+
+    # Fallback to ILIKE if tsquery returned 0 rows for valid search_terms
+    if not rows and search_terms:
+        ilike_conds = " OR ".join(f"c.retrieval_text ILIKE :t{i}" for i in range(len(search_terms)))
+        params = {f"t{i}": f"%{term}%" for i, term in enumerate(search_terms)}
+        params["topk"] = top_k * 3
+        sql_fallback = text(f"""
+            SELECT c.id as chunk_id, c.document_id, d.file_name, c.text, c.retrieval_text,
+                   1.0 as score
+            FROM chunks c
+            JOIN documents d ON d.id = c.document_id
+            WHERE {ilike_conds}
+            LIMIT :topk
+        """)
+        try:
+            rows = session.execute(sql_fallback, params).mappings().all()
+        except Exception:
+            rows = []
+
     filtered = []
     for r in rows:
-        # fetch chunk to check filters — quick and acceptable for small corpus
         chunk = session.get(ChunkORM, r["chunk_id"])
         if chunk is None:
             continue
@@ -88,7 +133,11 @@ def lexical_search(session: Session, plan: QueryPlan, top_k: int | None = None) 
     for r in filtered:
         base = float(r["score"])
         rt = r["retrieval_text"].lower()
-        bonus = sum(rt.count(term) * 0.15 for term in terms)
+        fn = r["file_name"].lower()
+        bonus = sum(rt.count(term) * 0.15 for term in search_terms)
+        for term in search_terms:
+            if term in fn:
+                bonus += 1.5
         boosted.append((r, base + bonus))
     boosted.sort(key=lambda x: x[1], reverse=True)
     out: list[LexicalCandidate] = []
@@ -103,3 +152,4 @@ def lexical_search(session: Session, plan: QueryPlan, top_k: int | None = None) 
             rank=idx,
         ))
     return out
+

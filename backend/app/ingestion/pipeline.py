@@ -319,7 +319,7 @@ def run(persist: bool = True) -> dict:
                     run.status = "failed"
                     run.error = str(e)[:2000]
                     s.commit()
-        raise
+run_pipeline = run
 
 
 if __name__ == "__main__":

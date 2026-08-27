@@ -1,16 +1,51 @@
 import logging
+import time
 import uuid
+from contextlib import asynccontextmanager
 
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from sqlalchemy import create_engine, text
 
 from app.config import settings
+from app.observability.logging import setup_logging
 
 logger = logging.getLogger(__name__)
 
-app = FastAPI(title="Case Intelligence RAG", version="0.1.0")
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Initialize structured JSON logging
+    setup_logging()
+    logger.info("Application starting up environment=%s", settings.app_env)
+
+    # Optional auto-ingestion check on boot
+    try:
+        engine = create_engine(settings.database_url, pool_pre_ping=True)
+        with engine.connect() as conn:
+            chunk_count = 0
+            try:
+                chunk_count = conn.execute(text("SELECT count(*) FROM chunks")).scalar() or 0
+            except Exception:
+                chunk_count = 0
+
+            logger.info("Database checked at boot chunk_count=%d", chunk_count)
+            if chunk_count == 0:
+                logger.info("Database chunks table empty — triggering auto-ingestion pipeline")
+                from app.ingestion.pipeline import run_pipeline
+                run_pipeline()
+        engine.dispose()
+    except Exception as exc:
+        logger.warning("Auto-ingestion boot check error: %s", exc)
+
+    yield
+
+    logger.info("Application shutting down")
+
+
+app = FastAPI(title="Case Intelligence RAG", version="0.1.0", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
@@ -25,9 +60,61 @@ app.add_middleware(
 async def add_request_id(request: Request, call_next):
     request_id = request.headers.get("X-Request-ID", str(uuid.uuid4()))
     request.state.request_id = request_id
-    response = await call_next(request)
+    start_time = time.perf_counter()
+
+    try:
+        response = await call_next(request)
+    except Exception as exc:
+        duration_ms = round((time.perf_counter() - start_time) * 1000, 2)
+        logger.error(
+            "Unhandled server exception path=%s duration_ms=%.2f error=%s",
+            request.url.path,
+            duration_ms,
+            exc,
+            extra={"request_id": request_id, "duration_ms": duration_ms, "status_code": 500},
+            exc_info=True,
+        )
+        return JSONResponse(
+            status_code=500,
+            content={
+                "error": "Internal Server Error",
+                "message": str(exc) if settings.app_env == "development" else "An unexpected error occurred",
+                "request_id": request_id,
+            },
+            headers={"X-Request-ID": request_id},
+        )
+
+    duration_ms = round((time.perf_counter() - start_time) * 1000, 2)
     response.headers["X-Request-ID"] = request_id
+    logger.info(
+        "http_request path=%s method=%s status_code=%d duration_ms=%.2f",
+        request.url.path,
+        request.method,
+        response.status_code,
+        duration_ms,
+        extra={"request_id": request_id, "duration_ms": duration_ms, "status_code": response.status_code},
+    )
     return response
+
+
+@app.exception_handler(HTTPException)
+async def http_exception_handler(request: Request, exc: HTTPException):
+    request_id = getattr(request.state, "request_id", str(uuid.uuid4()))
+    return JSONResponse(
+        status_code=exc.status_code,
+        content={"error": exc.detail, "request_id": request_id},
+        headers={"X-Request-ID": request_id},
+    )
+
+
+@app.exception_handler(RequestValidationError)
+async def validation_exception_handler(request: Request, exc: RequestValidationError):
+    request_id = getattr(request.state, "request_id", str(uuid.uuid4()))
+    return JSONResponse(
+        status_code=422,
+        content={"error": "Validation Error", "details": exc.errors(), "request_id": request_id},
+        headers={"X-Request-ID": request_id},
+    )
 
 
 @app.get("/health")
@@ -37,18 +124,14 @@ async def health():
 
 @app.get("/ready")
 async def ready():
-    # Check required config
     errors: list[str] = []
 
     if not settings.database_url:
         errors.append("DATABASE_URL not set")
 
-    # DB connectivity check — use sync engine for simplicity in Phase 1
-    # Convert async URL (postgresql+psycopg) to sync-compatible check
     db_ok = False
     db_error: str | None = None
     try:
-        # Use sync engine; psycopg works with postgresql+psycopg URL
         engine = create_engine(settings.database_url, pool_pre_ping=True)
         with engine.connect() as conn:
             conn.execute(text("SELECT 1"))
@@ -58,8 +141,6 @@ async def ready():
         db_error = str(exc)
         errors.append(f"database unreachable: {db_error}")
 
-    # Anthropic key presence check (only hard-fail if LLM is required at ready time)
-    # Spec §38 says /ready asserts ANTHROPIC_API_KEY is set
     if not settings.anthropic_api_key:
         errors.append("ANTHROPIC_API_KEY not set")
 
@@ -87,13 +168,6 @@ async def root():
     return {"service": "case-intelligence-rag", "health": "/health", "ready": "/ready"}
 
 
-# Placeholder query endpoint — full implementation in Phase 8
-@app.post("/api/v1/query")
-async def query_placeholder(payload: dict):
-    return JSONResponse(
-        status_code=501,
-        content={
-            "detail": "query endpoint not yet implemented (Phase 8)",
-            "request_id": str(uuid.uuid4()),
-        },
-    )
+from app.api.routes.query import router as query_router
+app.include_router(query_router, prefix="/api/v1")
+
