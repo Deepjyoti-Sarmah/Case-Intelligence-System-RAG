@@ -1,0 +1,47 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
+*.egg-info/
+dist/
+build/
+
+# --- Node ---
+node_modules/
+dist/
+.npm/
+
+# --- Env / secrets ---
+.env
+
+# --- OS / editor ---
+.DS_Store
+__MACOSX/
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.log
+
+# --- Data / models ---
+data/processed/
+*.zip
+*.bin
+*.onnx
+model_cache/
+hf_cache/
+
+# --- Alembic / DB ---
+*.db
+*.sqlite
+
+# --- Eval reports (keep baseline, ignore timestamped) ---
+# reports/*.json  # keep baseline.json, ignore others via code if needed
+
+# --- Docker ---
+.docker/
