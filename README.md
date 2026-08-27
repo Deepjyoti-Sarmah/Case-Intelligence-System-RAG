@@ -94,7 +94,21 @@ That's it! Running this single command automatically:
 make eval  # Run 21-question golden evaluation harness
 make test  # Run pytest unit and integration tests
 make ingest # Run manual re-ingestion if raw PDFs are modified
+make reset-db && make ingest  # Full database reset and re-ingestion
 ```
+
+---
+
+## Architecture
+
+The system implements a source-aware RAG pipeline optimized for case intelligence over mixed transcript/policy corpora:
+
+- **Query Planning**: LLM extracts hard filters (person_id, session scope, document types) and semantic concepts from natural language questions.
+- **Hybrid Retrieval**: Lexical (PostgreSQL FTS) + Dense (pgvector) search combined via Reciprocal Rank Fusion.
+- **Reranking**: Cross-encoder reranks fused candidates for semantic relevance.
+- **Evidence Building**: Parent context expansion, deduplication, and chronological ordering.
+- **Generation & Grounding**: Structured answer with typed claims, each backed by evidence IDs; unsupported claims are flagged.
+- **Source Authority**: Policy documents rank higher than transcripts for reference questions; temporal filters resolve "latest" from database dates.
 
 ---
 

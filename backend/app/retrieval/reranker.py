@@ -53,10 +53,18 @@ class CrossEncoderReranker:
         scored.sort(key=lambda x: x[0], reverse=True)
         return [c for _, c in scored[: settings.top_k_rerank]]
 
+_reranker_instance = None
+
 def get_reranker():
+    global _reranker_instance
+    if _reranker_instance is not None:
+        return _reranker_instance
     if not settings.enable_reranker:
-        return NoOpReranker()
+        _reranker_instance = NoOpReranker()
+        return _reranker_instance
     r = CrossEncoderReranker()
     if r.model is None:
-        return NoOpReranker()
-    return r
+        _reranker_instance = NoOpReranker()
+    else:
+        _reranker_instance = r
+    return _reranker_instance

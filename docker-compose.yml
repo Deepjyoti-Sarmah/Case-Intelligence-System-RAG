@@ -44,6 +44,7 @@ services:
     volumes:
       - ./backend:/app
       - ./evaluation:/app/evaluation
+      - ./data:/app/data
     restart: unless-stopped
 
   frontend:

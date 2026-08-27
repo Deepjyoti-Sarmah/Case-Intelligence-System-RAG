@@ -34,8 +34,8 @@ async def lifespan(app: FastAPI):
             logger.info("Database checked at boot chunk_count=%d", chunk_count)
             if chunk_count == 0:
                 logger.info("Database chunks table empty — triggering auto-ingestion pipeline")
-                from app.ingestion.pipeline import run_pipeline
-                run_pipeline()
+                from app.ingestion.pipeline import run
+                run()
         engine.dispose()
     except Exception as exc:
         logger.warning("Auto-ingestion boot check error: %s", exc)
