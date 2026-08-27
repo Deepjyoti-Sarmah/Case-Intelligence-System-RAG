@@ -4,8 +4,7 @@ import uuid
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
-from sqlalchemy import text
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 
 from app.config import settings
 
@@ -93,5 +92,8 @@ async def root():
 async def query_placeholder(payload: dict):
     return JSONResponse(
         status_code=501,
-        content={"detail": "query endpoint not yet implemented (Phase 8)", "request_id": str(uuid.uuid4())},
+        content={
+            "detail": "query endpoint not yet implemented (Phase 8)",
+            "request_id": str(uuid.uuid4()),
+        },
     )
