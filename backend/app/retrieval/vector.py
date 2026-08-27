@@ -25,7 +25,7 @@ _embedder = DummyHashEmbeddingProvider()
 
 def vector_search(session: Session, plan: QueryPlan, top_k: int | None = None) -> list[VectorCandidate]:
     top_k = top_k or settings.top_k_dense
-    conds = build_filters(plan)
+    conds = build_filters(plan, session)
     q_emb = _embedder.embed(plan.semantic_query)
     # pgvector cosine distance <=> (0 = identical)
     query = select(ChunkORM, DocumentORM.file_name, ChunkORM.embedding.cosine_distance(q_emb).label("distance")).join(DocumentORM, ChunkORM.document_id == DocumentORM.id)

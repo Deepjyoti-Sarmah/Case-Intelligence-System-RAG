@@ -21,7 +21,7 @@ class LexicalCandidate:
 
 def lexical_search(session: Session, plan: QueryPlan, top_k: int | None = None) -> list[LexicalCandidate]:
     top_k = top_k or settings.top_k_lexical
-    conds = build_filters(plan)
+    conds = build_filters(plan, session)
     q = plan.semantic_query.strip()
     if not q:
         return []
@@ -63,15 +63,19 @@ def lexical_search(session: Session, plan: QueryPlan, top_k: int | None = None) 
             continue
         ok = True
         for c in conds:
-            # evaluate simple equality filters on chunk object
-            # c is BinaryExpression like ChunkORM.person_id == 'nathan'
-            # we evaluate by checking chunk attribute
             try:
                 left = c.left.key  # type: ignore
                 right = c.right.value  # type: ignore
-                if getattr(chunk, left) != right:
-                    ok = False
-                    break
+                op_name = getattr(c.operator, "__name__", str(c.operator))
+                val = getattr(chunk, left)
+                if op_name == "ne":
+                    if val == right:
+                        ok = False
+                        break
+                else:
+                    if val != right:
+                        ok = False
+                        break
             except Exception:
                 pass
         if not ok:
