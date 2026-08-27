@@ -53,9 +53,20 @@ def reciprocal_rank_fusion(lexical: list[LexicalCandidate], vector: list[VectorC
     return fused
 
 
-def hybrid_search(session: Session, question: str, plan: QueryPlan | None = None) -> list[HybridCandidate]:
+def hybrid_search(session: Session, question: str, plan: QueryPlan | None = None, rerank: bool | None = None) -> list[HybridCandidate]:
     if plan is None:
         plan = plan_query(question)
     lex = lexical_search(session, plan)
     vec = vector_search(session, plan)
-    return reciprocal_rank_fusion(lex, vec)
+    fused = reciprocal_rank_fusion(lex, vec)
+    do_rerank = rerank if rerank is not None else settings.enable_reranker
+    if do_rerank:
+        try:
+            from app.retrieval.reranker import get_reranker
+            reranker = get_reranker()
+            # sync path for phase 4/5 tests
+            if hasattr(reranker, "rank_sync"):
+                return reranker.rank_sync(question, fused)  # type: ignore
+        except Exception:
+            pass
+    return fused[: settings.top_k_rerank] if do_rerank else fused

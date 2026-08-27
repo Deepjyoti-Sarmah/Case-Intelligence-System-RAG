@@ -12,7 +12,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY pyproject.toml ./
 RUN pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir -e . \
-    && pip install --no-cache-dir alembic pgvector
+    && pip install --no-cache-dir alembic pgvector sentence-transformers
+
+# Pre-download reranker model at build time (fails gracefully if offline)
+RUN python -c "from sentence_transformers import CrossEncoder; CrossEncoder('BAAI/bge-reranker-base')" || echo "reranker download skipped"
 
 COPY . .
 
